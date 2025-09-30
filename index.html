@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orient Supermarkt - Ihr Tor zum Orient</title>
+    <!-- Load Google Font: Righteous (as a Lemon Milk alternative) -->
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use the custom Oriental color scheme and the new font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Using 'Righteous' as the main sans font
+                        sans: ['Righteous', 'cursive'],
+                    },
+                    colors: {
+                        // REVISED BROWN & GOLD ORIENTAL PALETTE
+                        'orient-deep': '#8B4513', // Deep Brown
+                        'orient-gold': '#DAA520', // Goldenrod
+                        'orient-light': '#FAF0E6', // Linen/Beige
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensures smooth scrolling across all browsers */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar styling for aesthetics (Updated for Brown/Gold) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #8B4513; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #DAA520; }
+        
+        /* Hide scrollbar on mobile devices for cleaner look */
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar { width: 0; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-orient-light text-orient-deep">
+
+    <!-- Top Bar for Opening Hours (Fixed) -->
+    <div id="top-bar" class="fixed top-0 left-0 w-full bg-orient-gold text-orient-deep text-sm text-center py-1.5 z-30 shadow-inner font-bold">
+        Öffnungszeiten: Montag bis Freitag von 8:00 - 19:00 Uhr
+    </div>
+
+    <!-- Navigation Bar (Fixed Top, position adjusted to be below the Top Bar) -->
+    <nav id="navbar" class="fixed top-[34px] left-0 w-full bg-orient-deep shadow-lg z-20 transition duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Branding -->
+                <a href="#home" class="flex items-center space-x-2">
+                    <img src="https://placehold.co/40x40/FAF0E6/8B4513?text=OS" alt="Orient Supermarkt Logo" class="rounded-full shadow-md">
+                    <span class="text-xl font-extrabold text-orient-light tracking-wider">Orient Supermarkt</span>
+                </a>
+                
+                <!-- Navigation Links (Hidden on mobile, shown as menu button) -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-4">
+                    <a href="#home" class="text-orient-light hover:text-orient-gold px-3 py-2 rounded-md text-sm font-medium transition duration-150">Startseite</a>
+                    <a href="#products" class="text-orient-light hover:text-orient-gold px-3 py-2 rounded-md text-sm font-medium transition duration-150">Produkte</a>
+                    <a href="#categories" class="text-orient-light hover:text-orient-gold px-3 py-2 rounded-md text-sm font-medium transition duration-150">Kategorien</a>
+                    <a href="#about" class="text-orient-light hover:text-orient-gold px-3 py-2 rounded-md text-sm font-medium transition duration-150">Unsere Geschichte</a>
+                    <a href="#contact" class="text-orient-light hover:text-orient-gold px-3 py-2 rounded-md text-sm font-medium transition duration-150">Kontakt</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-orient-light hover:text-orient-gold focus:outline-none transition duration-150">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Toggle) -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-orient-deep/95">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block text-orient-light hover:bg-orient-gold hover:text-orient-deep px-3 py-2 rounded-md text-base font-medium transition duration-150">Startseite</a>
+                <a href="#products" class="block text-orient-light hover:bg-orient-gold hover:text-orient-deep px-3 py-2 rounded-md text-base font-medium transition duration-150">Produkte</a>
+                <a href="#categories" class="block text-orient-light hover:bg-orient-gold hover:text-orient-deep px-3 py-2 rounded-md text-base font-medium transition duration-150">Kategorien</a>
+                <a href="#about" class="block text-orient-light hover:bg-orient-gold hover:text-orient-deep px-3 py-2 rounded-md text-base font-medium transition duration-150">Unsere Geschichte</a>
+                <a href="#contact" class="block text-orient-light hover:bg-orient-gold hover:text-orient-deep px-3 py-2 rounded-md text-base font-medium transition duration-150">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-28"> <!-- Padding adjusted to pt-28 (112px) to clear both the top bar and the navigation -->
+        
+        <!-- Section 1: Hero & Carousel (Linen Background) -->
+        <section id="home" class="min-h-screen pt-12 pb-20 bg-orient-light flex items-center justify-center">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-orient-deep">
+                    Orient Supermarkt
+                </h1>
+                <p class="text-xl md:text-2xl mb-12 text-gray-700 max-w-3xl mx-auto">
+                    Traditioneller Genuss. Entdecken Sie die besten Waren und Gewürze aus aller Welt.
+                </p>
+
+                <!-- Picture Carousel (5 Images) -->
+                <div id="carousel-container" class="relative max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden group">
+                    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Placeholder colors updated: Gold background / Brown text -->
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://placehold.co/1200x500/DAA520/8B4513?text=Feinste+Gewürze" alt="Carousel Image 1 (Feinste Gewürze)" class="w-full h-96 object-cover">
+                        </div>
+                        <!-- Placeholder colors updated: Brown background / Linen text -->
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://placehold.co/1200x500/8B4513/FAF0E6?text=Frische+Produkte" alt="Carousel Image 2 (Frische Produkte)" class="w-full h-96 object-cover">
+                        </div>
+                        <!-- Placeholder colors updated: Linen background / Brown text -->
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://placehold.co/1200x500/FAF0E6/8B4513?text=Internationale+Delikatessen" alt="Carousel Image 3 (Internationale Delikatessen)" class="w-full h-96 object-cover">
+                        </div>
+                        <!-- Placeholder colors updated: Gold background / Linen text -->
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://placehold.co/1200x500/DAA520/FAF0E6?text=Handwerkliche+Backwaren" alt="Carousel Image 4 (Handwerkliche Backwaren)" class="w-full h-96 object-cover">
+                        </div>
+                        <!-- Placeholder colors updated: Brown background / Gold text -->
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://placehold.co/1200x500/8B4513/DAA520?text=Herzlich+Willkommen" alt="Carousel Image 5 (Herzlich Willkommen)" class="w-full h-96 object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button id="prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-orient-gold transition duration-300 hidden group-hover:block">
+                        &#10094;
+                    </button>
+                    <button id="next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-black/30 text-white rounded-full hover:bg-orient-gold transition duration-300 hidden group-hover:block">
+                        &#10095;
+                    </button>
+
+                    <!-- Carousel Indicators (Dots) -->
+                    <div id="carousel-dots" class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Products/Offerings (Deep Brown Background) -->
+        <section id="products" class="py-24 bg-orient-deep text-orient-light">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center text-orient-gold">Unsere Exklusive Auswahl</h2>
+                
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <!-- Text Content (Left-aligned on desktop) -->
+                    <div class="md:w-1/2 text-left space-y-6">
+                        <!-- Ersetzung von ** durch <em> und italic Klasse -->
+                        <p class="text-lg">
+                            Wir sind stolz darauf, die <em class="italic">authentischen Aromen</em> verschiedener Regionen direkt in Ihre Küche zu bringen. Bei uns finden Sie die ganze Vielfalt der <em class="italic">türkischen, arabischen, persischen, pakistanischen und Balkan-Küche</em>.
+                        </p>
+                        <p class="text-lg font-bold text-orient-gold pt-2">
+                            Unsere Highlights:
+                        </p>
+                        <!-- List items already use <strong>/font-extrabold, was beibehalten wird. -->
+                        <ul class="list-none space-y-3 text-lg">
+                            <li><span class="text-orient-gold mr-2">&#9733;</span> <strong class="font-extrabold text-xl">Frischeste Produkte:</strong> Täglich frisches Obst & Gemüse</li>
+                            <li><span class="text-orient-gold mr-2">&#9733;</span> <strong class="font-extrabold text-xl">Die Fleischtheke:</strong> Frisches Halal-Fleisch aus eigener Metzgerei</li>
+                            <li><span class="text-orient-gold mr-2">&#9733;</span> <strong class="font-extrabold text-xl">Grundnahrungsmittel:</strong> Premium Basmati Reis & Hülsenfrüchte</li>
+                            <li><span class="text-orient-gold mr-2">&#9733;</span> <strong class="font-extrabold text-xl">Die Backwaren:</strong> Täglich frisches Brot von türkischen Bäckereien</li>
+                            <li><span class="text-orient-gold mr-2">&#9733;</span> <strong class="font-extrabold text-xl">Der Klassiker:</strong> Original türkischer Schwarztee</li>
+                        </ul>
+                        <p class="pt-4 text-orient-gold font-bold">
+                            NEU: Gastronomieservice! Wir liefern Produkte in Großmengen an Restaurants und Imbisse.
+                        </p>
+                    </div>
+
+                    <!-- Placeholder Image (Right-aligned on desktop) -->
+                    <div class="md:w-1/2 flex justify-center md:justify-end">
+                        <!-- Placeholder color updated: Linen background / Brown text -->
+                        <img src="https://placehold.co/600x400/FAF0E6/8B4513?text=Produktschau" alt="Produktschau Bild" class="rounded-lg shadow-2xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2.5: PRODUCT CATEGORIES -->
+        <section id="categories" class="py-24 bg-orient-light text-orient-deep">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center text-orient-deep">Unsere Produktwelten im Detail</h2>
+                
+                <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-8 max-w-6xl mx-auto">
+                    
+                    <!-- KATEGORIE 1: FRISCHES FLEISCH -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/8B4513/FAF0E6?text=Frisches+Fleisch" alt="Bild von frischem Fleisch" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Frisches Fleisch</h3>
+                            <p class="text-gray-700 text-sm">Halal-Qualität aus unserer eigenen Metzgerei – täglich frisch und geprüft. Von Rind bis Lamm.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 2: FRISCHES BROT -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/DAA520/8B4513?text=Frisches+Brot" alt="Bild von frischem Brot" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Frisches Brot</h3>
+                            <p class="text-gray-700 text-sm">Tägliche Lieferung von traditionellem türkischem Brot, Fladenbrot und ofenfrischen Spezialitäten.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 3: FRISCHES OBST UND GEMÜSE -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/FAF0E6/8B4513?text=Obst+und+Gemüse" alt="Bild von Obst und Gemüse" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Obst & Gemüse</h3>
+                            <p class="text-gray-700 text-sm">Saisonale Vielfalt, direkt und knackfrisch für Ihre gesunde Küche und traditionelle Gerichte.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 4: KONSERVEN -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/8B4513/DAA520?text=Konserven" alt="Bild von Konserven" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Konserven</h3>
+                            <p class="text-gray-700 text-sm">Vielfältige Eingelegtes, Tomatenmark, Oliven und Fische aus dem gesamten Orient und Balkan.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 5: MOLKEREIPRODUKTE -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/DAA520/FAF0E6?text=Molkerei" alt="Bild von Molkereiprodukten" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Molkereiprodukte</h3>
+                            <p class="text-gray-700 text-sm">Spezialitäten wie Ayran, hochwertiger Feta, traditioneller türkischer Joghurt und Käsesorten.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 6: WURST -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/FAF0E6/DAA520?text=Wurstwaren" alt="Bild von Wurstwaren" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Wurstwaren</h3>
+                            <p class="text-gray-700 text-sm">Ausgewählte Halal-Wurst- und Aufschnittspezialitäten für Frühstück und Zwischenmahlzeiten.</p>
+                        </div>
+                    </div>
+
+                    <!-- KATEGORIE 7: TROCKENLEBENSMITTEL -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden border-b-4 border-orient-gold hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]">
+                        <img src="https://placehold.co/400x250/8B4513/FAF0E6?text=Trockenlebensmittel" alt="Bild von Trockenlebensmitteln" class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-2xl font-extrabold mb-2 text-orient-deep">Trockenlebensmittel</h3>
+                            <p class="text-gray-700 text-sm">Reis, Bulgur, Hülsenfrüchte, Nüsse und Gewürze – die Basis für jedes authentische orientalische Gericht.</p>
+                        </div>
+                    </div>
+
+                    <!-- Platzhalter, um Grid-Lücke zu schließen (nur auf großen Bildschirmen sichtbar) -->
+                    <div class="hidden lg:block"></div> 
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 3: Our Story (About Us) (Goldenrod Background) -->
+        <section id="about" class="py-24 bg-orient-gold text-orient-deep">
+            <div class="container mx-auto px-4 max-w-3xl text-center">
+                <h2 class="text-4xl font-bold mb-8">Unsere Reise in Kevelaer</h2>
+                
+                <!-- Ersetzung von ** durch <u> und font-extrabold Klasse für Fakten -->
+                <p class="text-lg mb-6">
+                    Der Orient Supermarkt wurde <u class="font-extrabold no-underline">2007 als Familienunternehmen in Kevelaer</u> gegründet. Seitdem verfolgen wir die einfache Mission, Kontinente durch Lebensmittel zu verbinden und die besten Zutaten des Orients zugänglich zu machen.
+                </p>
+                <!-- Ersetzung von ** durch <em> und italic Klasse für konzeptionelle Hervorhebung -->
+                <p class="text-lg mb-6 font-semibold">
+                    Als Familienbetrieb pflegen wir stets den <em class="italic">persönlichen Kontakt</em> zu unseren Kunden. Wir sind mehr als nur ein Geschäft – wir sind ein Treffpunkt, an dem jedes Produkt eine Geschichte erzählt.
+                </p>
+                
+                <!-- Expansion Detail -->
+                <p class="text-xl font-extrabold mb-6 text-orient-deep/80">
+                    Meilenstein 2023: Umzug und Vergrößerung auf 1000m² in Kevelaer!
+                </p>
+
+                <!-- Placeholder color updated: Brown background / Linen text -->
+                <img src="https://placehold.co/800x300/8B4513/FAF0E6?text=Ladenansicht+Kevelaer" alt="Platzhalter für Ladenansicht" class="rounded-xl shadow-2xl mx-auto my-8">
+                
+                <p class="text-lg">
+                    Wir setzen uns weiterhin für höchste Qualität, direkte Importe und die Ehre der Traditionen ein, die unsere Esskultur so reich und vielfältig machen.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 4: Contact/Location (Linen Background) -->
+        <section id="contact" class="py-24 bg-orient-light text-orient-deep">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center text-orient-deep">Besuchen & Kontaktieren Sie uns</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
+                    <!-- Contact Details (Öffnungszeiten entfernt) -->
+                    <div class="p-6 bg-white rounded-xl shadow-xl border border-orient-gold">
+                        <h3 class="text-2xl font-semibold mb-4 text-orient-deep">Nehmen Sie Kontakt auf</h3>
+                        <p class="mb-2"><strong>Adresse:</strong> Ladestraße 19, 47623 Kevelaer</p>
+                        <p class="mb-2"><strong>Telefon:</strong> (02832) 404767</p>
+                        <p class="mb-2"><strong>E-Mail:</strong> <a href="mailto:orientsupermarkt@outlook.de" class="text-orient-deep hover:text-orient-gold transition duration-150">orientsupermarkt@outlook.de</a></p>
+                        
+                        <a href="https://www.instagram.com/orientsupermarktkevelaer?utm_source=ig_web_button_share_sheet&igsh=MTNlb3oxZTljdjZubg==" target="_blank" class="mt-4 inline-block text-white bg-orient-deep hover:bg-orient-gold px-4 py-2 rounded-lg font-bold transition duration-150 shadow-md">
+                            Auf Instagram folgen
+                        </a>
+                    </div>
+                    
+                    <!-- Real Google Map Embed -->
+                    <div class="p-6 bg-white rounded-xl shadow-xl border border-orient-deep">
+                        <h3 class="text-2xl font-semibold mb-4 text-orient-deep">Unser Standort</h3>
+                        
+                        <!-- Embed Google Map here -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.7431320499715!2d6.230787376672322!3d51.58330050478082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8555e1378d30d%3A0xf6e507727181c0c!2sLadestra%C3%9Fe%2019%2C%2047623%20Kevelaer%2C%20Germany!5e0!3m2!1sen!2sde!4v1700000000000!5m2!1sen!2sde" 
+                            width="100%" 
+                            height="256" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-lg shadow-inner"
+                            aria-label="Google Maps Standort Ladestraße 19, Kevelaer">
+                        </iframe>
+                        
+                        <a href="https://maps.google.com/?q=Ladestraße+19,+47623+Kevelaer" target="_blank" class="mt-4 inline-block text-orient-gold hover:text-orient-deep font-bold transition duration-150">
+                            Route berechnen (Ladestraße 19, Kevelaer) &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-orient-light p-8 text-center">
+            <p>&copy; 2025 Orient Supermarkt. Alle Rechte vorbehalten. | Gestaltet mit orientalischem Flair.</p>
+            <p class="text-sm mt-2">
+                <a href="https://www.instagram.com/orientsupermarktkevelaer" target="_blank" class="text-orient-gold hover:text-orient-light transition duration-150">Instagram</a>
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- JavaScript for Carousel and Mobile Menu ---
+
+        // 1. Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+
+        // 2. Image Carousel Logic
+        const carouselTrack = document.getElementById('carousel-track');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const dotsContainer = document.getElementById('carousel-dots');
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        function updateCarousel() {
+            // Move the track
+            const offset = -currentIndex * 100;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+
+            // Update dots
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.remove('bg-orient-gold');
+                dot.classList.add('bg-white/50');
+                if (index === currentIndex) {
+                    dot.classList.add('bg-orient-gold');
+                    dot.classList.remove('bg-white/50');
+                }
+            });
+        }
+
+        function generateDots() {
+            for (let i = 0; i < totalItems; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot', 'w-3', 'h-3', 'rounded-full', 'bg-white/50', 'transition', 'duration-300');
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    stopAutoSlide();
+                    updateCarousel();
+                    startAutoSlide();
+                });
+                dotsContainer.appendChild(dot);
+            }
+            updateCarousel(); // Initial update to highlight the first dot
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide(); // Clear any existing interval
+            autoSlideInterval = setInterval(nextSlide, 5000); // Change image every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Event Listeners for buttons
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+        
+        // Start the carousel on load
+        window.onload = function() {
+            generateDots();
+            startAutoSlide();
+        }
+        
+        // Optional: Pause auto-slide on hover
+        const carouselContainer = document.getElementById('carousel-container');
+        carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+        carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // 3. Scroll effects (optional - if you want to change nav appearance)
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                // Change appearance after scrolling 50px
+                navbar.classList.add('bg-orient-deep/95');
+                navbar.classList.remove('shadow-lg');
+            } else {
+                // Restore original appearance
+                navbar.classList.remove('bg-orient-deep/95');
+                navbar.classList.add('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
