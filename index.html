@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" sizes="16x16" href="./resources/images/favicon.svg">
     <title>Orient Supermarkt - Ihr Tor zum Orient</title>
     <!-- Load Google Font: Righteous (as a Lemon Milk alternative) -->
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
                 extend: {
                     fontFamily: {
                         // Using 'Righteous' as the main sans font
+                        balloon: ['balloon', 'sans-serif'],
                         sans: ['Righteous', 'cursive'],
+
                     },
                     colors: {
                         // REVISED BROWN & GOLD ORIENTAL PALETTE
@@ -41,9 +44,17 @@
         @media (max-width: 768px) {
             ::-webkit-scrollbar { width: 0; }
         }
+
+        @font-face {
+            font-family: 'balloon';
+            src:    url('./resources/fonts/BL.TTF')  format('truetype'),
+                    url('./resources/fonts/BL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
-<body class="font-sans bg-orient-light text-orient-deep">
+<body class="font-arial bg-orient-light text-orient-deep">
 
     <!-- Top Bar for Opening Hours (Fixed) -->
     <div id="top-bar" class="fixed top-0 left-0 w-full bg-orient-gold text-orient-deep text-sm text-center py-1.5 z-30 shadow-inner font-bold">
